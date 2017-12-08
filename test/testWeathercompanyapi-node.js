@@ -85,7 +85,6 @@ describe('The Weather Company API Node Client', function() {
 
 	it('should return data for current conditions with latitude longitude location', function (done) {
 		var api = new WeatherApi(cachedDevKey);
-
 		api.should.be.instanceOf(WeatherApi);
 
 		api.units('e').language('en-US').geocode('37.317850,-122.035920').call('observations/current', function (err, data) {
@@ -106,7 +105,6 @@ describe('The Weather Company API Node Client', function() {
 
 	it('should return data for current conditions with latitude longitude location with metric units', function (done) {
 		var api = new WeatherApi(cachedDevKey);
-
 		api.should.be.instanceOf(WeatherApi);
 
 		api.units('m').language('en-US').geocode('37.317850,-122.035920').call('observations/current', function (err, data) {
@@ -126,7 +124,6 @@ describe('The Weather Company API Node Client', function() {
 
 	it('should return data for current conditions with latitude longitude location with hybrid units', function (done) {
 		var api = new WeatherApi(cachedDevKey);
-
 		api.should.be.instanceOf(WeatherApi);
 
 		api.units('h').language('en-US').geocode('37.317850,-122.035920').call('observations/current', function (err, data) {
@@ -167,7 +164,6 @@ describe('The Weather Company API Node Client', function() {
 
 	it('should return error because of invalid call method', function (done) {
 		var api = new WeatherApi(cachedDevKey);
-
 		api.should.be.instanceOf(WeatherApi);
 
 		api.units('h').language('en-US').geocode('37.317850,-122.035920').call('invalid', function (err, data) {
