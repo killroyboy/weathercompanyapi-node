@@ -1,7 +1,7 @@
 # weathercompanyapi-node
 `weathercompanyapi-node` is a chainable Node client for accessing The Weather Company API
 
-# Getting Started
+## Getting Started
 ```shell
 npm install weathercompanyapi-node
 ```
