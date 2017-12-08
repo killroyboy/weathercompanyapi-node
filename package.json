@@ -1,0 +1,34 @@
+{
+  "name": "weathercompanyapi-node",
+  "version": "0.0.1",
+  "description": "Node Client to access The Weather Company API",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha --reporter spec",
+    "coverage": "node ./node_modules/istanbul/lib/cli.js cover _mocha -- -R spec && open coverage/lcov-report/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://killroyboy@github.com/killroyboy/weathercompanyapi-node.git"
+  },
+  "keywords": [
+    "weather",
+    "weather.com"
+  ],
+  "author": "Dan Wilson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/killroyboy/weathercompanyapi-node/issues"
+  },
+  "homepage": "https://github.com/killroyboy/weathercompanyapi-node#readme",
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "moment": "^2.19.3",
+    "request": "^2.83.0"
+  },
+  "devDependencies": {
+    "istanbul": "^0.4.5",
+    "mocha": "^4.0.1",
+    "should": "^13.1.3"
+  }
+}
