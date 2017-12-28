@@ -1,9 +1,9 @@
 # weathercompanyapi-node
 `weathercompanyapi-node` is a chainable Node client for accessing The Weather Company API
 
-# Getting Started
+## Getting Started
 ```shell
-    npm install weathercompanyapi-node
+npm install weathercompanyapi-node
 ```
 ## Instantiate
 ```js
@@ -39,7 +39,7 @@ The above example results in metric units and German.
 Currently this library is compatible with the `Enhanced Current Conditions` and `Enhanced Forecast` APIs.
 
 ## Contributing
-In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code.
+In lieu of a formal style guide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code.
 
 ## Release History
 0.0.1 Initial Release
