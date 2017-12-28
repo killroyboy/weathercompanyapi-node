@@ -1,8 +1,8 @@
 {
   "name": "weathercompanyapi-node",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Node Client to access The Weather Company API",
-  "main": "index.js",
+  "main": "./lib/weathercompanyapi-node",
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha --reporter spec",
     "coverage": "node ./node_modules/istanbul/lib/cli.js cover _mocha -- -R spec && open coverage/lcov-report/index.html"
