@@ -159,7 +159,33 @@ describe('The Weather Company API Node Client', function() {
 
 			done();
 		});
+	});
 
+	it('should return data for 15 days of hourly forecast', function (done) {
+		var api = new WeatherApi(cachedDevKey);
+		api.should.be.instanceOf(WeatherApi);
+
+		api.units('e').language('en-US').geocode('37.317850,-122.035920').call('forecast/hourly/360hour', function (err, data) {
+			err.should.be.false();
+
+			data.should.be.instanceOf(Object).and.have.property('forecasts');
+			data.metadata.language.should.equal('en-US');
+			data.metadata.units.should.equal('e');
+			data.metadata.status_code.should.equal(200);
+
+			data.forecasts.should.be.Array();
+			data.forecasts.length.should.equal(360);
+			data.forecasts[0].should.have.property('dow');
+			data.forecasts[0].should.have.property('temp');
+			data.forecasts[0].should.have.property('hi');
+			data.forecasts[0].should.have.property('wc');
+			data.forecasts[0].should.have.property('wspd');
+			data.forecasts[0].should.have.property('qpf');
+			data.forecasts[0].should.have.property('precip_type');
+			data.forecasts[0].should.have.property('feels_like');
+
+			done();
+		});
 	});
 
 	it('should return error because of invalid call method', function (done) {
