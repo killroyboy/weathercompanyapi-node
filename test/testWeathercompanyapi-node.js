@@ -320,4 +320,39 @@ describe('The Weather Company API Node Client', function() {
 			done();
 		});
 	});
+
+	it('should return data for current conditions using promise', function (done) {
+		var api = new WeatherApi(cachedDevKey);
+		api.should.be.instanceOf(WeatherApi);
+
+		api.units('e').language('en-US').geocode('37.317850,-122.035920').call('observations/current').then(function (data) {
+			data.should.be.Object();
+
+			data.should.be.instanceOf(Object).and.have.property('observation');
+			data.metadata.language.should.equal('en-US');
+			data.metadata.units.should.equal('e');
+			data.metadata.status_code.should.equal(200);
+
+			data.observation.should.have.property('imperial'); // because of units = e
+			data.observation.imperial.should.have.property('temp').and.is.a.Number();
+			data.observation.imperial.should.have.property('altimeter').and.is.a.Number();
+			data.observation.imperial.should.have.property('wspd').and.is.a.Number();
+		}).catch(function (err) {
+			err.should.be.false();
+		}).then(done);
+	});
+
+	it('should fail retrieving current conditions using promise', function (done) {
+		var api = new WeatherApi();
+		api.should.be.instanceOf(WeatherApi);
+
+		api.units('e').language('en-US').geocode('37.317850,-122.035920').call('observations/current').then(function (data) {
+			// should never get into this
+			data.should.be.false();
+		}).catch(function (err) {
+			err.should.be.Error();
+			err.message.should.equal('apiKey is Missing');
+		}).then(done);
+	});
+
 });
