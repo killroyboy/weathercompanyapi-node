@@ -44,5 +44,13 @@ In lieu of a formal style guide, take care to maintain the existing coding style
 ## Release History
 0.0.1 Initial Release
 
+0.0.2 Fixed a packaging issue
+
+0.0.3 Added hourly forecast
+
+0.0.4 Verify ApiKey and throw error if missing
+
+0.0.5 Allow using a promise on `call` method
+
 ## License
-Copyright (c) 2017 Dan Wilson &amp; Skydrop, LLC. Licensed under the MIT license.
+Copyright (c) 2017 Dan Wilson &amp; Skydrop, LLC. Licensed under the MIT license. See LICENSE.
