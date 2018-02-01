@@ -277,7 +277,7 @@ describe('The Weather Company API Node Client', function() {
 			});
 		} catch (err) {
 			err.should.be.Error();
-			err.message.should.equal('Query, location type and callback are required in search request');
+			err.message.should.equal('Query and location type are required in search request');
 			done();
 		}
 	});
@@ -382,7 +382,7 @@ describe('The Weather Company API Node Client', function() {
 			});
 		} catch (err) {
 			err.should.be.Error();
-			err.message.should.equal('Key, value and callback are required in point request');
+			err.message.should.equal('Key and value are required in point request');
 			done();
 		}
 	});
