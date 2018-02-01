@@ -83,6 +83,23 @@ describe('The Weather Company API Node Client', function() {
 
 	});
 
+	it('should fail to return data for current conditions because of missing postal and country', function (done) {
+		var api = new WeatherApi(cachedDevKey);
+		api.should.be.instanceOf(WeatherApi);
+
+		try {
+			api.units('e').language('en-US').location('', '').call('observations/current', function (err, data) {
+				// we should never get here
+				done();
+			});
+		} catch (err) {
+			err.should.be.Error();
+			err.message.should.equal('Postal code and country are required in location request');
+			done();
+		}
+
+	});
+
 	it('should return data for current conditions with latitude longitude location', function (done) {
 		var api = new WeatherApi(cachedDevKey);
 		api.should.be.instanceOf(WeatherApi);
@@ -100,6 +117,23 @@ describe('The Weather Company API Node Client', function() {
 
 			done();
 		});
+
+	});
+
+	it('should return fail to return current conditions with empty lat/lng', function (done) {
+		var api = new WeatherApi(cachedDevKey);
+		api.should.be.instanceOf(WeatherApi);
+
+		try {
+			api.units('e').language('en-US').geocode('').call('observations/current', function (err, data) {
+				// we should never get into this
+				done();
+			});
+		} catch (err) {
+			err.should.be.Error();
+			err.message.should.equal('Latitude (and longitude) are required in geocode request');
+			done();
+		}
 
 	});
 
@@ -232,6 +266,22 @@ describe('The Weather Company API Node Client', function() {
 		});
 	});
 
+	it('should fail to return location data because of missing search query', function (done) {
+		var api = new WeatherApi(cachedDevKey);
+		api.should.be.instanceOf(WeatherApi);
+
+		try {
+			api.search('', 'city', function (err, data) {
+				// we should never get here
+				done();
+			});
+		} catch (err) {
+			err.should.be.Error();
+			err.message.should.equal('Query, location type and callback are required in search request');
+			done();
+		}
+	});
+
 	it('should return location data from address search', function (done) {
 		var api = new WeatherApi(cachedDevKey);
 		api.should.be.instanceOf(WeatherApi);
@@ -319,6 +369,22 @@ describe('The Weather Company API Node Client', function() {
 
 			done();
 		});
+	});
+
+	it('should fail to return point data because of missing point info', function (done) {
+		var api = new WeatherApi(cachedDevKey);
+		api.should.be.instanceOf(WeatherApi);
+
+		try {
+			api.point('', 'YSSY', function (err, data) {
+				// should never get here
+				done();
+			});
+		} catch (err) {
+			err.should.be.Error();
+			err.message.should.equal('Key, value and callback are required in point request');
+			done();
+		}
 	});
 
 	it('should return data for current conditions using promise', function (done) {
