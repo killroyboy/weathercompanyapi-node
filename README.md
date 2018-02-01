@@ -54,5 +54,7 @@ In lieu of a formal style guide, take care to maintain the existing coding style
 
 0.0.6 Fixed problem with API Version getting overwritten 
 
+0.0.7 Better handling of empty/missing parameters 
+
 ## License
 Copyright (c) 2017 Dan Wilson &amp; Skydrop, LLC. Licensed under the MIT license. See LICENSE.
